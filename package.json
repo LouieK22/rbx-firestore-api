@@ -1,0 +1,22 @@
+{
+  "name": "@rbxts/firestore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rbxts/services": "^1.0.27"
+  },
+  "devDependencies": {
+    "@rbxts/types": "^1.0.277",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-roblox-ts": "0.0.6",
+    "prettier": "^1.18.2"
+  }
+}
