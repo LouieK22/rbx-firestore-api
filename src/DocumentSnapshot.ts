@@ -73,7 +73,7 @@ export class DocumentSnapshot {
 			return undefined;
 		}
 
-		if (this.parsedData) {
+		if (this.parsedData !== undefined) {
 			return this.parsedData;
 		}
 

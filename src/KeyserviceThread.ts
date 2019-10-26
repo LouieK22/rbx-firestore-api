@@ -14,8 +14,8 @@ interface IOAuthResponseBody {
 export class KeyserviceThread {
 	private client: FirestoreClient;
 
-	private lastTokenUpdate: number = 0;
-	private tokenLifetime: number = 0;
+	private lastTokenUpdate = 0;
+	private tokenLifetime = 0;
 
 	public constructor(client: FirestoreClient) {
 		this.client = client;
