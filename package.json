@@ -6,7 +6,7 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "typings": "out/index.d.ts",
+  "typings": "./out/index.d.ts",
   "dependencies": {
     "@rbxts/services": "^1.0.28"
   },
