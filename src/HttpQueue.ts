@@ -34,7 +34,7 @@ export class HttpQueue {
 			Authorization: `Bearer ${this.client.currentToken}`,
 		};
 
-		if (queueItem.req.Body) {
+		if (queueItem.req.Body !== undefined) {
 			queueItem.req.Headers["Content-Type"] = "application/json";
 		}
 
