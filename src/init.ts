@@ -18,7 +18,7 @@ export class FirestoreClient {
 	public keyserviceThread: KeyserviceThread;
 
 	public currentToken?: string;
-	public tokenInvalid = true;
+	public tokenInvalid: boolean = true;
 
 	public baseUrl: string;
 

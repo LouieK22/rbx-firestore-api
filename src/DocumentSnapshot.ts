@@ -15,7 +15,7 @@ export interface IEncodedValue {
 }
 
 export class DocumentSnapshot {
-	private parsedData?: Map<string, unknown>;
+	private parsedData?: Object;
 
 	public ref: DocumentReference;
 
@@ -77,7 +77,7 @@ export class DocumentSnapshot {
 			return this.parsedData;
 		}
 
-		this.parsedData = DocumentSnapshot.decodeFields(this.fields);
+		this.parsedData = DocumentSnapshot.decodeFields(this.fields) as Object;
 
 		return this.parsedData;
 	}
