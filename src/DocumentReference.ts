@@ -1,4 +1,4 @@
-import { FirestoreClient } from "./init";
+import { FirestoreClient } from ".";
 import { HttpService } from "@rbxts/services";
 import { DocumentSnapshot, IEncodedValue } from "./DocumentSnapshot";
 

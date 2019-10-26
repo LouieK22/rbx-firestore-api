@@ -50,6 +50,7 @@
         "prefixWithI": "always"
       }
     ],
+    "@typescript-eslint/no-this-alias": "off",
     "prefer-const": "warn",
     "no-undef-init": "error"
   }

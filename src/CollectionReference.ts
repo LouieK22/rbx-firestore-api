@@ -1,4 +1,4 @@
-import { FirestoreClient } from "./init";
+import { FirestoreClient } from ".";
 import { DocumentReference } from "./DocumentReference";
 
 export class CollectionReference {

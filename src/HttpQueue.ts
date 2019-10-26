@@ -1,4 +1,4 @@
-import { FirestoreClient } from "./init";
+import { FirestoreClient } from ".";
 import { RunService, HttpService } from "@rbxts/services";
 
 export interface IQueuedRequest {
