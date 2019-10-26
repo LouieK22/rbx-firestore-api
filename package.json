@@ -1,8 +1,8 @@
 {
   "name": "@rbxts/firestore",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "./out/init.lua",
   "keywords": [],
   "author": "",
   "license": "MIT",
