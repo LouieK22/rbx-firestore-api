@@ -7,20 +7,20 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@rbxts/services": "^1.0.27"
+    "@rbxts/services": "^1.0.28"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/LouieK22/rbx-firestore-api.git"
   },
   "devDependencies": {
-    "@rbxts/types": "^1.0.277",
-    "@typescript-eslint/eslint-plugin": "^2.3.3",
-    "@typescript-eslint/parser": "^2.3.3",
-    "eslint": "^6.5.1",
+    "@rbxts/types": "^1.0.283",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-roblox-ts": "0.0.6",
+    "eslint-plugin-roblox-ts": "0.0.7",
     "prettier": "^1.18.2"
   }
 }
