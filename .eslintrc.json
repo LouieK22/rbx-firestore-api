@@ -41,6 +41,7 @@
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/interface-name-prefix": [
@@ -49,7 +50,6 @@
         "prefixWithI": "always"
       }
     ],
-    "@typescript-eslint/no-this-alias": "off",
     "prefer-const": "warn",
     "no-undef-init": "error"
   }

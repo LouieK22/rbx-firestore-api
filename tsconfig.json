@@ -20,12 +20,6 @@
 
     // optional, non-configurable
     "jsx": "react",
-    "jsxFactory": "Roact.createElement",
-
-    "paths": {
-      "*": ["../node_modules/@rbxts/*"],
-      "net.Throttle": ["../src/Throttle"],
-      "net.Serializer": ["../src/Serializer"]
-    }
+    "jsxFactory": "Roact.createElement"
   }
 }
