@@ -1,4 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "luacheck.useLuacheck": false
+  "editor.formatOnSave": true
 }
