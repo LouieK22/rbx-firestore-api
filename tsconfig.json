@@ -1,25 +1,22 @@
 {
-  "compilerOptions": {
-    // required
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
-    "module": "commonjs",
-    "noLib": true,
-    "strict": true,
-    "target": "es6",
-    "typeRoots": ["node_modules/@rbxts"],
-    "stripInternal": true,
+	"compilerOptions": {
+		// required
+		"allowSyntheticDefaultImports": true,
+		"downlevelIteration": true,
+		"jsx": "react",
+		"jsxFactory": "Roact.createElement",
+		"module": "commonjs",
+		"moduleResolution": "Node",
+		"noLib": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"target": "ESNext",
+		"typeRoots": ["node_modules/@rbxts"],
 
-    // required, configurable
-    "rootDir": "src",
-    "outDir": "out",
-
-    // optional
-    "baseUrl": "src",
-    "declaration": true,
-
-    // optional, non-configurable
-    "jsx": "react",
-    "jsxFactory": "Roact.createElement"
-  }
+		// configurable
+		"rootDir": "src",
+		"outDir": "out",
+		"baseUrl": "src",
+		"declaration": true
+	}
 }

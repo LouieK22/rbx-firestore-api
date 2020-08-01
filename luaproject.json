@@ -1,9 +1,0 @@
-{
-	"name": "firestore",
-	"tree": {
-		"$path": "out",
-		"vendor": {
-			"$path": "include"
-		}
-	}
-}
