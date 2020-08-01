@@ -1,5 +1,5 @@
 {
-  "name": "@rbxts/rbx-firestore-api",
+  "name": "@rbxts/firestore",
   "version": "2.0.0",
   "description": "Roblox API for interfacing with Google Cloud Firestore",
   "main": "out/init.lua",
