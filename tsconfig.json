@@ -17,6 +17,8 @@
 		"rootDir": "src",
 		"outDir": "out",
 		"baseUrl": "src",
-		"declaration": true
+		"declaration": true,
+		"incremental": true,
+		"tsBuildInfoFile": "out/tsconfig.tsbuildinfo"
 	}
 }
