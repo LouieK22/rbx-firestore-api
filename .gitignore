@@ -2,3 +2,5 @@
 /out
 /include
 *.tsbuildinfo
+*.tgz
+build.sh

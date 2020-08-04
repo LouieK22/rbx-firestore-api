@@ -1,3 +1,3 @@
-export function makeHello(name: string) {
-	return `Hello from ${name}!`;
-}
+import { Firestore } from "Firestore";
+
+export { Firestore };
