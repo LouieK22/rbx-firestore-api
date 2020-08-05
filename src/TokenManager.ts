@@ -27,6 +27,23 @@ export class TokenManager {
 		return this.currentToken !== undefined && os.time() < this.tokenExpires;
 	}
 
+	public async fetch(request: RequestAsyncRequest) {
+		if (request.Headers === undefined) {
+			request.Headers = {};
+		}
+
+		if (request.Body !== undefined) {
+			request.Headers["Content-Type"] = "application/json";
+		}
+
+		const token = await this.getToken();
+		request.Headers["Authorization"] = `Bearer ${token}`;
+
+		return opcall(() => {
+			return HttpService.RequestAsync(request);
+		});
+	}
+
 	private async refreshToken() {
 		const stat = opcall(() => {
 			return HttpService.RequestAsync({

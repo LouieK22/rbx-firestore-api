@@ -15,27 +15,12 @@ export class DocumentReference {
 	}
 
 	public async get() {
-		const token = await this.firestore.tokenManager.getToken();
-
-		const stat = opcall(() => {
-			return HttpService.RequestAsync({
-				Url: `${this.firestore.baseUrl}/documents/${this.id}`,
-				Headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			});
+		const stat = await this.firestore.tokenManager.fetch({
+			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
 		});
 
 		if (stat.success) {
-			const jsonStat = opcall(() => {
-				return HttpService.JSONDecode(stat.value.Body);
-			});
-
-			if (stat.value.Success && jsonStat.success) {
-				return new DocumentSnapshot(this, jsonStat.value as RawFirestoreDocument);
-			} else {
-				return new DocumentSnapshot(this);
-			}
+			return this.parseResponse(stat.value);
 		} else {
 			throw stat.error;
 		}
@@ -52,32 +37,45 @@ export class DocumentReference {
 			throw "data encoding failed\n" + encodingStat.error;
 		}
 
-		const token = await this.firestore.tokenManager.getToken();
+		print(inspect(encodingStat.value));
 
-		const stat = opcall(() => {
-			return HttpService.RequestAsync({
-				Url: `${this.firestore.baseUrl}/documents/${this.id}`,
-				Method: "PATCH",
-				Headers: {
-					Authorization: `Bearer ${token}`,
-					["Content-Type"]: "application/json",
-				},
-				Body: encodingStat.value,
-			});
+		const stat = await this.firestore.tokenManager.fetch({
+			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
+			Method: "PATCH",
+			Body: encodingStat.value,
+		});
+
+		print(inspect(stat));
+
+		if (stat.success) {
+			return this.parseResponse(stat.value);
+		} else {
+			throw stat.error;
+		}
+	}
+
+	public async delete() {
+		const stat = await this.firestore.tokenManager.fetch({
+			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
+			Method: "DELETE",
 		});
 
 		if (stat.success) {
-			const jsonStat = opcall(() => {
-				return HttpService.JSONDecode(stat.value.Body);
-			});
-
-			if (stat.value.Success && jsonStat.success) {
-				return new DocumentSnapshot(this, jsonStat.value as RawFirestoreDocument);
-			} else {
-				return new DocumentSnapshot(this);
-			}
+			return true;
 		} else {
-			throw stat.error;
+			throw false;
+		}
+	}
+
+	private parseResponse(response: RequestAsyncResponse) {
+		const jsonStat = opcall(() => {
+			return HttpService.JSONDecode(response.Body);
+		});
+
+		if (response.Success && jsonStat.success) {
+			return new DocumentSnapshot(this, jsonStat.value as RawFirestoreDocument);
+		} else {
+			return new DocumentSnapshot(this);
 		}
 	}
 }
