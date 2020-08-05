@@ -5,18 +5,18 @@ import { RawFirestoreDocument, DocumentData, encodeDocumentFields } from "util/d
 import inspect from "@rbxts/inspect";
 
 export class DocumentReference {
-	public id: string;
+	public path: string;
 
 	private firestore: Firestore;
 
-	public constructor(firestore: Firestore, id: string) {
+	public constructor(firestore: Firestore, path: string) {
 		this.firestore = firestore;
-		this.id = id;
+		this.path = path;
 	}
 
 	public async get() {
 		const stat = await this.firestore.tokenManager.fetch({
-			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
+			Url: `${this.firestore.baseUrl}/documents/${this.path}`,
 		});
 
 		if (stat.success) {
@@ -40,7 +40,7 @@ export class DocumentReference {
 		print(inspect(encodingStat.value));
 
 		const stat = await this.firestore.tokenManager.fetch({
-			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
+			Url: `${this.firestore.baseUrl}/documents/${this.path}`,
 			Method: "PATCH",
 			Body: encodingStat.value,
 		});
@@ -56,7 +56,7 @@ export class DocumentReference {
 
 	public async delete() {
 		const stat = await this.firestore.tokenManager.fetch({
-			Url: `${this.firestore.baseUrl}/documents/${this.id}`,
+			Url: `${this.firestore.baseUrl}/documents/${this.path}`,
 			Method: "DELETE",
 		});
 

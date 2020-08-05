@@ -3,14 +3,14 @@ import { RawFirestoreDocument, decodeDocumentFields } from "util/documentFields"
 
 export class DocumentSnapshot {
 	public exists: boolean;
-	public id: string;
+	public path: string;
 	public ref: DocumentReference;
 
 	public rawDocument?: RawFirestoreDocument;
 
 	public constructor(ref: DocumentReference, rawDocument?: RawFirestoreDocument) {
 		this.ref = ref;
-		this.id = ref.id;
+		this.path = ref.path;
 		this.rawDocument = rawDocument;
 
 		if (rawDocument) {
