@@ -1,5 +1,6 @@
 import { DocumentReference } from "DocumentReference";
 import { TokenManager } from "TokenManager";
+import { CollectionReference } from "CollectionReference";
 
 export interface FirestoreConfig {
 	project: string;
@@ -19,6 +20,10 @@ export class Firestore {
 		this.config = config;
 		this.baseUrl = `https://firestore.googleapis.com/v1/projects/${this.config.project}/databases/(default)`;
 		this.tokenManager = new TokenManager(this);
+	}
+
+	public collection(path: string) {
+		return new CollectionReference(this, path);
 	}
 
 	public doc(path: string) {

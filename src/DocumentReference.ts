@@ -3,6 +3,7 @@ import { Firestore } from "Firestore";
 import { DocumentSnapshot } from "DocumentSnapshot";
 import { RawFirestoreDocument, DocumentData, encodeDocumentFields } from "util/documentFields";
 import inspect from "@rbxts/inspect";
+import { cleanPath } from "util/path";
 
 export class DocumentReference {
 	public path: string;
@@ -11,7 +12,7 @@ export class DocumentReference {
 
 	public constructor(firestore: Firestore, path: string) {
 		this.firestore = firestore;
-		this.path = path;
+		this.path = cleanPath(path);
 	}
 
 	public async get() {
@@ -37,15 +38,11 @@ export class DocumentReference {
 			throw "data encoding failed\n" + encodingStat.error;
 		}
 
-		print(inspect(encodingStat.value));
-
 		const stat = await this.firestore.tokenManager.fetch({
 			Url: `${this.firestore.baseUrl}/documents/${this.path}`,
 			Method: "PATCH",
 			Body: encodingStat.value,
 		});
-
-		print(inspect(stat));
 
 		if (stat.success) {
 			return this.parseResponse(stat.value);
