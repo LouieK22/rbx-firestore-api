@@ -1,5 +1,5 @@
 import { DocumentReference } from "DocumentReference";
-import { RawFirestoreDocument, decodeDocumentFields } from "util/documentFields";
+import { decodeDocumentFields, RawFirestoreDocument } from "util/documentFields";
 
 export class DocumentSnapshot {
 	public exists: boolean;

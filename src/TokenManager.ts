@@ -1,6 +1,5 @@
-import { Firestore } from "Firestore";
 import { HttpService } from "@rbxts/services";
-import inspect from "@rbxts/inspect";
+import { Firestore } from "Firestore";
 
 export class TokenManager {
 	private firestore: Firestore;

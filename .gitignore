@@ -4,3 +4,5 @@
 *.tsbuildinfo
 *.tgz
 build.sh
+/lua
+/dist

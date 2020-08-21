@@ -1,9 +1,9 @@
 import { HttpService } from "@rbxts/services";
-import { Firestore } from "Firestore";
 import { DocumentSnapshot } from "DocumentSnapshot";
-import { RawFirestoreDocument, DocumentData, encodeDocumentFields } from "util/documentFields";
-import inspect from "@rbxts/inspect";
-import { cleanPath } from "util/path";
+import { Firestore } from "Firestore";
+import * as References from "References";
+import { DocumentData, encodeDocumentFields, RawFirestoreDocument } from "util/documentFields";
+import { cleanPath, pathJoin } from "util/path";
 
 export class DocumentReference {
 	public path: string;
@@ -13,6 +13,10 @@ export class DocumentReference {
 	public constructor(firestore: Firestore, path: string) {
 		this.firestore = firestore;
 		this.path = cleanPath(path);
+	}
+
+	public collection(path: string) {
+		return new References.CollectionReference(this.firestore, pathJoin(this.path, path));
 	}
 
 	public async get() {

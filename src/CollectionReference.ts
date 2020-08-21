@@ -1,6 +1,6 @@
 import { Firestore } from "Firestore";
-import { DocumentReference } from "DocumentReference";
-import { pathJoin, cleanPath } from "util/path";
+import * as References from "References";
+import { cleanPath, pathJoin } from "util/path";
 
 export class CollectionReference {
 	public path: string;
@@ -13,6 +13,6 @@ export class CollectionReference {
 	}
 
 	public doc(path: string) {
-		return new DocumentReference(this.firestore, pathJoin(this.path, path));
+		return new References.DocumentReference(this.firestore, pathJoin(this.path, path));
 	}
 }

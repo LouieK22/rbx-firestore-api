@@ -1,6 +1,6 @@
+import { CollectionReference } from "CollectionReference";
 import { DocumentReference } from "DocumentReference";
 import { TokenManager } from "TokenManager";
-import { CollectionReference } from "CollectionReference";
 
 export interface FirestoreConfig {
 	project: string;
