@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "description": "Roblox API for interfacing with Google Cloud Firestore",
   "main": "out/init.lua",
+  "scripts": {
+    "typedoc": "npx typedoc --out docs ./src --mode modules"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LouieK22/rbx-firestore-api.git"
