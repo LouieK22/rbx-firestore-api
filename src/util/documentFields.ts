@@ -1,33 +1,74 @@
+import isArray from "util/isArray";
+
+/**
+ * Firestore-encoded string
+ */
 interface RawDocFieldString {
 	stringValue: string;
 }
 
+/**
+ * Firestore-encoded integer
+ */
 interface RawDocFieldInteger {
 	integerValue: string;
 }
 
+/**
+ * Firestore-encoded double
+ */
 interface RawDocFieldDouble {
 	doubleValue: number;
 }
 
+/**
+ * Firestore-encoded boolean
+ */
 interface RawDocFieldBoolean {
 	booleanValue: boolean;
 }
 
-export type MapFields = Map<string, RawFirestoreDocumentField>;
-interface RawDocFieldMap {
-	mapValue: {
-		fields: MapFields;
-	};
-}
-
-export type RawFirestoreDocumentField =
+/**
+ * Firestore array value
+ */
+type RawFirestoreDocumentArrayValue =
 	| RawDocFieldString
 	| RawDocFieldInteger
 	| RawDocFieldDouble
 	| RawDocFieldBoolean
 	| RawDocFieldMap;
 
+/**
+ * Firestore-encoded array
+ */
+interface RawDocFieldArray {
+	arrayValue: {
+		values: RawFirestoreDocumentArrayValue[];
+	};
+}
+
+/**
+ * Fields within a Firestore-encoded map
+ */
+export type MapFields = Map<string, RawFirestoreDocumentField>;
+
+/**
+ * Firestore-encoded map
+ */
+interface RawDocFieldMap {
+	mapValue: {
+		fields: MapFields;
+	};
+}
+
+/**
+ * Values for fields within a Firestore-encoded document
+ */
+export type RawFirestoreDocumentField = RawFirestoreDocumentArrayValue | RawDocFieldArray;
+
+/**
+ * Complete Firestore-encoded document
+ */
 export interface RawFirestoreDocument {
 	name: string;
 	createTime: string;
@@ -35,17 +76,56 @@ export interface RawFirestoreDocument {
 	fields: MapFields;
 }
 
-export type DocumentDataValue = string | number | boolean | DocumentData;
+/**
+ * Value within a document array
+ */
+export type DocumentArrayValue = string | number | boolean | DocumentData;
 
+/**
+ * Values for fields within a document
+ */
+export type DocumentDataValue = DocumentArrayValue | Array<DocumentArrayValue>;
+
+/**
+ * Decoded document form
+ */
 export interface DocumentData {
 	[field: string]: DocumentDataValue;
 }
 
+/**
+ * Determines whether or not a value is an integer for encoding purposes
+ * @param n Number to test
+ */
 function isInteger(n: number) {
 	return n === math.floor(n);
 }
 
-export function decodeDocumentFieldValue(value: RawFirestoreDocumentField) {
+function encodeArray(values: DocumentArrayValue[]): RawFirestoreDocumentArrayValue[] {
+	const encoded = new Array<RawFirestoreDocumentArrayValue>();
+
+	for (let i = 0; i < values.size(); i++) {
+		const element = values[i];
+
+		encoded.push(encodeDocumentFieldValue(element) as RawFirestoreDocumentArrayValue);
+	}
+
+	return encoded;
+}
+
+function decodeArray(values: RawFirestoreDocumentArrayValue[]): Array<DocumentArrayValue> {
+	const parsed = new Array<DocumentArrayValue>();
+
+	for (let i = 0; i < values.size(); i++) {
+		const element = values[i];
+
+		parsed.push(decodeDocumentFieldValue(element) as DocumentArrayValue);
+	}
+
+	return parsed;
+}
+
+export function decodeDocumentFieldValue(value: RawFirestoreDocumentField): DocumentDataValue {
 	if ("stringValue" in value) {
 		return value.stringValue;
 	} else if ("integerValue" in value) {
@@ -54,6 +134,8 @@ export function decodeDocumentFieldValue(value: RawFirestoreDocumentField) {
 		return value.doubleValue;
 	} else if ("booleanValue" in value) {
 		return value.booleanValue;
+	} else if ("arrayValue" in value) {
+		return decodeArray(value.arrayValue.values);
 	} else {
 		return decodeDocumentFields(value.mapValue.fields);
 	}
@@ -87,6 +169,12 @@ export function encodeDocumentFieldValue(value: DocumentDataValue): RawFirestore
 	} else if (typeIs(value, "boolean")) {
 		return {
 			booleanValue: value,
+		};
+	} else if (isArray(value)) {
+		return {
+			arrayValue: {
+				values: encodeArray(value),
+			},
 		};
 	} else {
 		return {
