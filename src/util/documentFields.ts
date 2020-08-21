@@ -101,6 +101,10 @@ function isInteger(n: number) {
 	return n === math.floor(n);
 }
 
+/**
+ * Encodes a a document array for Firestore
+ * @param values Document array to encode
+ */
 function encodeArray(values: DocumentArrayValue[]): RawFirestoreDocumentArrayValue[] {
 	const encoded = new Array<RawFirestoreDocumentArrayValue>();
 
@@ -113,6 +117,10 @@ function encodeArray(values: DocumentArrayValue[]): RawFirestoreDocumentArrayVal
 	return encoded;
 }
 
+/**
+ * Decodes a Firestore-encoded array into document format
+ * @param values Firestore-encoded array to decode
+ */
 function decodeArray(values: RawFirestoreDocumentArrayValue[]): Array<DocumentArrayValue> {
 	const parsed = new Array<DocumentArrayValue>();
 
@@ -125,6 +133,10 @@ function decodeArray(values: RawFirestoreDocumentArrayValue[]): Array<DocumentAr
 	return parsed;
 }
 
+/**
+ * Decodes a single Firestore-encoded field value
+ * @param value Single Firestore-encoded field
+ */
 export function decodeDocumentFieldValue(value: RawFirestoreDocumentField): DocumentDataValue {
 	if ("stringValue" in value) {
 		return value.stringValue;
@@ -141,6 +153,10 @@ export function decodeDocumentFieldValue(value: RawFirestoreDocumentField): Docu
 	}
 }
 
+/**
+ * Decodes a Firestore-encoded map into a document map
+ * @param fields Map fields to decode
+ */
 export function decodeDocumentFields(fields: MapFields): DocumentData {
 	const parsed: DocumentData = {};
 
@@ -151,6 +167,10 @@ export function decodeDocumentFields(fields: MapFields): DocumentData {
 	return parsed;
 }
 
+/**
+ * Encodes a single Document field value into
+ * @param value Document value to encode
+ */
 export function encodeDocumentFieldValue(value: DocumentDataValue): RawFirestoreDocumentField {
 	if (typeIs(value, "number")) {
 		if (isInteger(value)) {
@@ -185,6 +205,10 @@ export function encodeDocumentFieldValue(value: DocumentDataValue): RawFirestore
 	}
 }
 
+/**
+ * Encodes a complete document into Firestore
+ * @param fields Document map to encode
+ */
 export function encodeDocumentFields(fields: DocumentData) {
 	const encoded: MapFields = new Map();
 
