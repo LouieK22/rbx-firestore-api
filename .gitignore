@@ -1,8 +1,14 @@
+# Packages
 /node_modules
+
+# Generated Code
 /out
 /include
 *.tsbuildinfo
+
+# Package artifacts
 *.tgz
+
+# Custom build script
 build.sh
-/lua
-/dist
+
