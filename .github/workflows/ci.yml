@@ -27,6 +27,15 @@ jobs:
           submodules: recursive
       - uses: bahmutov/npm-install@v1.1.0
 
+      # install roblox-ts dev
+      - run: |
+        cd tests
+        git clone -b refactor https://github.com/roblox-ts/roblox-ts.git
+        cd roblox-ts
+        npm run build
+        npm run devlink
+        cd ..
+
       # install Roblox Studio
       - run: pip install wget psutil
       - run: |
