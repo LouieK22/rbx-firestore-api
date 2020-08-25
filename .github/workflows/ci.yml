@@ -29,13 +29,14 @@ jobs:
 
       # install roblox-ts dev
       - run: |
-          cd tests
+          pushd ..
           git clone -b refactor https://github.com/roblox-ts/roblox-ts.git
-          cd roblox-ts
+          pushd roblox-ts
           npm ci
           npm run build
           npm run devlink
-          cd ..
+          popd
+          popd
 
       # install Roblox Studio
       - run: pip install wget psutil
