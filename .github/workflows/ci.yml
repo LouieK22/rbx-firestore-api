@@ -32,6 +32,7 @@ jobs:
           cd tests
           git clone -b refactor https://github.com/roblox-ts/roblox-ts.git
           cd roblox-ts
+          npm ci
           npm run build
           npm run devlink
           cd ..
