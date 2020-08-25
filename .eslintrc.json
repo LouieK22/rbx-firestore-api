@@ -32,7 +32,6 @@
 		],
 		"@typescript-eslint/member-ordering": [
 			"warn"
-		],
-		"roblox-ts/no-any": "off"
+		]
 	}
 }

@@ -5,6 +5,17 @@ on:
       - master
 
 jobs:
+  build-and-lint:
+    if: contains(github.event.commits[0].message, '[skip ci]') == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: recursive
+      - uses: bahmutov/npm-install@v1.1.0
+
+      - run: npm run eslint
+
   typedoc:
     name: Typedoc Build
     runs-on: ubuntu-latest
