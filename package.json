@@ -4,8 +4,12 @@
   "description": "Roblox API for interfacing with Google Cloud Firestore",
   "main": "out/init.lua",
   "scripts": {
+    "build": "rbxtsc-dev build --type=package && cp src/*.d.ts out/",
     "typedoc": "npx typedoc --out docs ./src --mode modules --plugin typedoc-plugin-nojekyll",
-    "eslint": "eslint \"src/**/*.ts\" --max-warnings 0"
+    "eslint": "eslint \"src/**/*.ts\" --max-warnings 0",
+    "test": "npm run build && npm run test-rojo && npm run test-run",
+    "test-rojo": "rojo build tests -o ./tests/test.rbxlx",
+    "test-run": "run-in-roblox --place ./tests/test.rbxlx --script ./tests/spec.lua"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
   },
   "types": "out/index.d.ts",
   "devDependencies": {
+    "@rbxts/testez": "^0.3.1-ts.6",
     "@rbxts/types": "^1.0.385",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
