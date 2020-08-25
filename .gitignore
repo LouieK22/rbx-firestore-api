@@ -1,7 +1,7 @@
 # Packages
 /node_modules
 
-# Generated Code
+# Generated code
 /out
 /include
 *.tsbuildinfo
@@ -12,3 +12,5 @@
 # Custom build script
 build.sh
 
+# Test artifacts
+test.rbxlx
