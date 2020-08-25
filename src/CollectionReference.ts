@@ -11,6 +11,9 @@ export class CollectionReference {
 	 */
 	public path: string;
 
+	/**
+	 * [[Firestore]] to which the Document belongs
+	 */
 	private firestore: Firestore;
 
 	public constructor(firestore: Firestore, path: string) {
