@@ -5,7 +5,8 @@ on:
       - master
 
 jobs:
-  build-and-lint:
+  ci:
+    name: Lint & Test
     if: contains(github.event.commits[0].message, '[skip ci]') == false
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +18,7 @@ jobs:
       - run: npm run eslint
 
   typedoc:
-    name: Typedoc Build
+    name: Typedoc Deploy
     runs-on: ubuntu-latest
 
     steps:
