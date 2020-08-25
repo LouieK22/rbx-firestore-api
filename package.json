@@ -4,7 +4,7 @@
   "description": "Roblox API for interfacing with Google Cloud Firestore",
   "main": "out/init.lua",
   "scripts": {
-    "typedoc": "npx typedoc --out docs ./src --mode modules"
+    "typedoc": "npx typedoc --out docs ./src --mode modules --plugin typedoc-plugin-nojekyll"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "eslint-plugin-roblox-ts": "0.0.20",
     "prettier": "^2.0.5",
     "typedoc": "^0.18.0",
+    "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.9.7"
   },
   "dependencies": {
