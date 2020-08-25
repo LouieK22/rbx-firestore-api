@@ -34,3 +34,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs
+          GIT_CONFIG_NAME: "GitHub Actions"
+          GIT_CONFIG_EMAIL: "noreply@github.com"
