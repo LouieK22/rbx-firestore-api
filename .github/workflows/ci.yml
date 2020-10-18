@@ -30,7 +30,7 @@ jobs:
       # install roblox-ts dev
       - run: |
           pushd ..
-          git clone -b refactor https://github.com/roblox-ts/roblox-ts.git
+          git clone -b master https://github.com/roblox-ts/roblox-ts.git
           pushd roblox-ts
           npm ci
           npm run build
