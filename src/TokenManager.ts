@@ -27,16 +27,20 @@ export class TokenManager {
 	}
 
 	public async fetch(request: RequestAsyncRequest) {
-		if (request.Headers === undefined) {
-			request.Headers = {};
+		let headers = request.Headers as Map<string, string> | undefined;
+
+		if (headers === undefined) {
+			headers = new Map<string, string>();
 		}
 
 		if (request.Body !== undefined) {
-			request.Headers["Content-Type"] = "application/json";
+			headers.set("Content-Type", "application/json");
 		}
 
 		const token = await this.getToken();
-		request.Headers["Authorization"] = `Bearer ${token}`;
+		headers.set("Authorization", `Bearer ${token}`);
+
+		request.Headers = headers;
 
 		return opcall(() => {
 			return HttpService.RequestAsync(request);

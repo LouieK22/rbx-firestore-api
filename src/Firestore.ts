@@ -30,7 +30,7 @@ export interface FirestoreConfig {
 
 /**
  * Top level Firestore, represents an entire GCP/Firebase Project's Firestore
- * Manages the [[TokenManager]] instance for the project
+ * Manages the TokenManager instance for the project
  */
 export class Firestore {
 	public config: FirestoreConfig;

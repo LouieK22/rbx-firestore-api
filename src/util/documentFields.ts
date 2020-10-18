@@ -1,3 +1,4 @@
+import { Geopoint } from "util/Geopoint";
 import isArray from "util/isArray";
 
 /**
@@ -29,6 +30,16 @@ interface RawDocFieldBoolean {
 }
 
 /**
+ * Firestore-encoded geopoint
+ */
+interface RawDocFieldGeopoint {
+	geoPointValue: {
+		latitude: number;
+		longitude: number;
+	};
+}
+
+/**
  * Firestore array value
  */
 type RawFirestoreDocumentArrayValue =
@@ -36,7 +47,8 @@ type RawFirestoreDocumentArrayValue =
 	| RawDocFieldInteger
 	| RawDocFieldDouble
 	| RawDocFieldBoolean
-	| RawDocFieldMap;
+	| RawDocFieldMap
+	| RawDocFieldGeopoint;
 
 /**
  * Firestore-encoded array
@@ -79,7 +91,7 @@ export interface RawFirestoreDocument {
 /**
  * Value within a document array
  */
-export type DocumentArrayValue = string | number | boolean | DocumentData;
+export type DocumentArrayValue = string | number | boolean | Geopoint | DocumentData;
 
 /**
  * Values for fields within a document
@@ -148,6 +160,8 @@ export function decodeDocumentFieldValue(value: RawFirestoreDocumentField): Docu
 		return value.booleanValue;
 	} else if ("arrayValue" in value) {
 		return decodeArray(value.arrayValue.values);
+	} else if ("geoPointValue" in value) {
+		return new Geopoint(value.geoPointValue.latitude, value.geoPointValue.longitude);
 	} else {
 		return decodeDocumentFields(value.mapValue.fields);
 	}
@@ -194,6 +208,13 @@ export function encodeDocumentFieldValue(value: DocumentDataValue): RawFirestore
 		return {
 			arrayValue: {
 				values: encodeArray(value),
+			},
+		};
+	} else if (value instanceof Geopoint) {
+		return {
+			geoPointValue: {
+				latitude: value.latitude,
+				longitude: value.longitude,
 			},
 		};
 	} else {

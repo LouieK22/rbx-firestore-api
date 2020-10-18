@@ -7,7 +7,7 @@ import { cleanPath, pathJoin } from "util/path";
 
 /**
  * Represents a Document in a Firestore
- * A [[DocumentReference]] does not gaurantee a Document exists
+ * A DocumentReference does not gaurantee a Document exists
  */
 export class DocumentReference {
 	/**

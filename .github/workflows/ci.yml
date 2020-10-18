@@ -56,6 +56,48 @@ jobs:
       # compile and run tests
       - run: npm test
 
+unit-tests:
+  name: Unit Testing
+
+  # Roblox Studio needs to run on Windows
+  runs-on: windows-latest
+
+  steps:
+    # checkout + npm install
+    - uses: actions/checkout@v1
+      with:
+        submodules: recursive
+
+    # Dependencies for OrbitalOwen/roblox-win-installer
+    - run: pip install wget psutil 
+
+    # Install Roblox Studio
+    #
+    # If your repo is private, you can get away with just the second line of this script
+    # since you can just store your ROBLOSECURITY token in Github Actions secrets.
+    #
+    # However, if this project is public, you may want to use a backup token so
+    # that Github Actions won't fail on Pull Requests. 
+    - run: | 
+        if (![string]::IsNullOrEmpty("${{ secrets.ROBLOSECURITY }}")) {
+          python tests/scripts/install.py "${{ secrets.ROBLOSECURITY }}"
+        } else {
+          python tests/scripts/install.py "backup token here"
+        }
+
+    # This uses the foreman.toml you already wrote to install the needed tools.
+    # foreman.toml should be in your repositories root directory, not in the tests/ directory
+    - uses: rojo-rbx/setup-foreman@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - run: foreman install
+
+    # Build your project into a .rbxlx file
+    - run: rojo build -o ./tests/test.rbxlx
+
+    # Run your tests with run-in-roblox
+    - run: run-in-roblox --place ./tests/test.rbxlx --script ./tests/spec.lua
+
   typedoc:
     name: Typedoc Deploy
     runs-on: ubuntu-latest

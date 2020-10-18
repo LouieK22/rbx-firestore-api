@@ -4,12 +4,12 @@
   "description": "Roblox API for interfacing with Google Cloud Firestore",
   "main": "out/init.lua",
   "scripts": {
-    "build": "rbxtsc-dev build --type=package && cp src/*.d.ts out/",
+    "build": "rbxtsc-dev build --type=package",
     "typedoc": "npx typedoc --out docs ./src --mode modules --plugin typedoc-plugin-nojekyll",
     "eslint": "eslint \"src/**/*.ts\" --max-warnings 0",
-    "test": "npm run build && npm run test-rojo && npm run test-run",
-    "test-rojo": "rojo build tests -o ./tests/test.rbxlx",
-    "test-run": "run-in-roblox --place ./tests/test.rbxlx --script ./tests/spec.lua"
+    "test": "npm run build && npm run test:rojo && npm run test:run",
+    "test:rojo": "rojo build tests -o ./tests/test.rbxlx",
+    "test:run": "run-in-roblox --place ./tests/test.rbxlx --script ./tests/spec.lua"
   },
   "repository": {
     "type": "git",
@@ -27,21 +27,22 @@
   },
   "types": "out/index.d.ts",
   "devDependencies": {
+    "@rbxts/compiler-types": "^1.0.0-beta.3.0",
     "@rbxts/testez": "^0.3.1-ts.6",
-    "@rbxts/types": "^1.0.385",
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.7.1",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
+    "@rbxts/types": "^1.0.418",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-roblox-ts": "0.0.20",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "typedoc": "^0.18.0",
     "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^3.9.7"
   },
   "dependencies": {
     "@rbxts/inspect": "^1.0.1",
-    "@rbxts/services": "^1.1.0"
+    "@rbxts/services": "^1.1.1"
   }
 }
