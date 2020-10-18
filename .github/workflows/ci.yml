@@ -55,3 +55,34 @@ jobs:
 
       # compile and run tests
       - run: npm test
+
+  typedoc:
+    name: Typedoc Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 14.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - uses: bahmutov/npm-install@v1
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "noreply@github.com"
+      - name: Generate Documentation
+        run: npm run typedoc
+
+      - name: Deploy docs
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: docs
+          GIT_CONFIG_NAME: "GitHub Actions"
+          GIT_CONFIG_EMAIL: "noreply@github.com"
