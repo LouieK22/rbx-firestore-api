@@ -1,5 +1,7 @@
 name: CI
+
 on:
+  pull_request:
   push:
     branches:
       - master
@@ -10,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           submodules: recursive
       
       - name: Install NPM dependencies
-        uses: bahmutov/npm-install@v1.1.0
+        uses: bahmutov/npm-install@v1.4.5
 
       - name: Run ESLint
         run: npm run eslint
@@ -25,12 +27,12 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           submodules: recursive
 
       - name: Install NPM dependencies
-        uses: bahmutov/npm-install@v1.1.0
+        uses: bahmutov/npm-install@v1.4.5
 
       - name: Install Roblox Studio
         uses: OrbitalOwen/roblox-win-installer-action@1.0
@@ -46,33 +48,34 @@ jobs:
       - name: Compile and run tests
         run: npm test
 
-  typedoc:
-    name: Typedoc Deploy
-    runs-on: ubuntu-latest
+  # typedoc:
+  #   name: Typedoc Deploy
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Install NodeJS
-        uses: actions/setup-node@v1
-        with: 
-          node-version: 14.x
-          registry-url: 'https://registry.npmjs.org'
+  #     - name: Install NodeJS
+  #       uses: actions/setup-node@v1
+  #       with: 
+  #         node-version: 14.x
+  #         registry-url: 'https://registry.npmjs.org'
 
-      - uses: bahmutov/npm-install@v1
+  #     - uses: bahmutov/npm-install@v1.4.5
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "noreply@github.com"
-      - name: Generate Documentation
-        run: npm run typedoc
+  #     - name: Configure Git
+  #       run: |
+  #         git config --global user.name "GitHub Actions"
+  #         git config --global user.email "noreply@github.com"
 
-      - name: Deploy docs
-        uses: JamesIves/github-pages-deploy-action@3.5.9
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs
-          GIT_CONFIG_NAME: "GitHub Actions"
-          GIT_CONFIG_EMAIL: "noreply@github.com"
+  #     - name: Generate Documentation
+  #       run: npm run typedoc
+
+  #     - name: Deploy docs
+  #       uses: JamesIves/github-pages-deploy-action@3.5.9
+  #       with:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         BRANCH: gh-pages
+  #         FOLDER: docs
+  #         GIT_CONFIG_NAME: "GitHub Actions"
+  #         GIT_CONFIG_EMAIL: "noreply@github.com"
