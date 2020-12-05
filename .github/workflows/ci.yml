@@ -35,7 +35,7 @@ jobs:
         uses: bahmutov/npm-install@v1.4.5
 
       - name: Install Roblox Studio
-        uses: OrbitalOwen/roblox-win-installer-action@1.0
+        uses: LastTalon/roblox-win-installer-action@fix-1
         with:
           cookie: ${{ secrets.ROBLOSECURITY }}
           token: ${{ secrets.GITHUB_TOKEN }}
