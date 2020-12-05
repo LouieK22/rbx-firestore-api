@@ -36,6 +36,7 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-roblox-ts": "0.0.24",
+    "patch-package": "^6.2.2",
     "prettier": "^2.2.1",
     "typedoc": "^0.19.2",
     "typedoc-plugin-nojekyll": "^1.0.1",
