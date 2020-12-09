@@ -28,7 +28,7 @@
   },
   "types": "out/index.d.ts",
   "devDependencies": {
-    "@rbxts/compiler-types": "^1.0.0-beta.6.2",
+    "@rbxts/compiler-types": "^1.0.0-beta.8.0",
     "@rbxts/testez": "^0.3.1-ts.6",
     "@rbxts/types": "^1.0.428",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
@@ -39,7 +39,7 @@
     "eslint-plugin-roblox-ts": "0.0.24",
     "patch-package": "^6.2.2",
     "prettier": "^2.2.1",
-    "roblox-ts": "^1.0.0-beta.6",
+    "roblox-ts": "^1.0.0-beta.8",
     "typedoc": "^0.19.2",
     "typedoc-plugin-nojekyll": "^1.0.1",
     "typescript": "^4.1.2"
