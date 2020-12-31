@@ -7,7 +7,6 @@
 	<meta name="description" content="Documentation for @rbxts/firestore">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
@@ -41,6 +40,8 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -52,10 +53,13 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../modules.html">@rbxts/firestore</a>
+					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="firestore.html">Firestore</a>
+					<a href="../modules/_firestore_.html">&quot;Firestore&quot;</a>
+				</li>
+				<li>
+					<a href="_firestore_.firestore.html">Firestore</a>
 				</li>
 			</ul>
 			<h1>Class Firestore</h1>
@@ -88,22 +92,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="firestore.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_firestore_.firestore.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="firestore.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="firestore.html#config" class="tsd-kind-icon">config</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="firestore.html#tokenmanager" class="tsd-kind-icon">token<wbr>Manager</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_firestore_.firestore.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_firestore_.firestore.html#config" class="tsd-kind-icon">config</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_firestore_.firestore.html#tokenmanager" class="tsd-kind-icon">token<wbr>Manager</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="firestore.html#collection" class="tsd-kind-icon">collection</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="firestore.html#doc" class="tsd-kind-icon">doc</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_firestore_.firestore.html#collection" class="tsd-kind-icon">collection</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_firestore_.firestore.html#doc" class="tsd-kind-icon">doc</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,22 +119,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Firestore<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FirestoreConfig</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="firestore.html" class="tsd-signature-type" data-tsd-kind="Class">Firestore</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Firestore<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="../interfaces/_firestore_.firestoreconfig.html" class="tsd-signature-type">FirestoreConfig</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_firestore_.firestore.html" class="tsd-signature-type">Firestore</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L39">Firestore.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L39">src/Firestore.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>config: <span class="tsd-signature-type">FirestoreConfig</span></h5>
+									<h5>config: <a href="../interfaces/_firestore_.firestoreconfig.html" class="tsd-signature-type">FirestoreConfig</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="firestore.html" class="tsd-signature-type" data-tsd-kind="Class">Firestore</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_firestore_.firestore.html" class="tsd-signature-type">Firestore</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -143,27 +147,27 @@
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L37">Firestore.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L37">src/Firestore.ts:37</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="config" class="tsd-anchor"></a>
 					<h3>config</h3>
-					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FirestoreConfig</span></div>
+					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_firestore_.firestoreconfig.html" class="tsd-signature-type">FirestoreConfig</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L36">Firestore.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L36">src/Firestore.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="tokenmanager" class="tsd-anchor"></a>
 					<h3>token<wbr>Manager</h3>
-					<div class="tsd-signature tsd-kind-icon">token<wbr>Manager<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TokenManager</span></div>
+					<div class="tsd-signature tsd-kind-icon">token<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="_tokenmanager_.tokenmanager.html" class="tsd-signature-type">TokenManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L39">Firestore.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L39">src/Firestore.ts:39</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -174,18 +178,18 @@
 					<a name="collection" class="tsd-anchor"></a>
 					<h3>collection</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">collection<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CollectionReference</span></li>
+						<li class="tsd-signature tsd-kind-icon">collection<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collectionreference_.collectionreference.html" class="tsd-signature-type">CollectionReference</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L52">Firestore.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L52">src/Firestore.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a new [[CollectionReference]] for the provided path</p>
+									<p>Returns a new <a href="_collectionreference_.collectionreference.html">CollectionReference</a> for the provided path</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -197,7 +201,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">CollectionReference</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_collectionreference_.collectionreference.html" class="tsd-signature-type">CollectionReference</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -205,18 +209,18 @@
 					<a name="doc" class="tsd-anchor"></a>
 					<h3>doc</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">doc<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DocumentReference</span></li>
+						<li class="tsd-signature tsd-kind-icon">doc<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_documentreference_.documentreference.html" class="tsd-signature-type">DocumentReference</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/8fae143/src/Firestore.ts#L62">Firestore.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/LouieK22/rbx-firestore-api/blob/59f8fa3/src/Firestore.ts#L62">src/Firestore.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a new [[DocumentReference]] for the provided path</p>
+									<p>Returns a new <a href="_documentreference_.documentreference.html">DocumentReference</a> for the provided path</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,7 +232,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">DocumentReference</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_documentreference_.documentreference.html" class="tsd-signature-type">DocumentReference</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -237,8 +241,32 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" ">
-						<a href="../modules.html">Exports</a>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_collectionreference_.html">&quot;<wbr>Collection<wbr>Reference&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_documentreference_.html">&quot;<wbr>Document<wbr>Reference&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_documentsnapshot_.html">&quot;<wbr>Document<wbr>Snapshot&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_firestore_.html">&quot;<wbr>Firestore&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_tokenmanager_.html">&quot;<wbr>Token<wbr>Manager&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_util_geopoint_.html">&quot;util/<wbr>Geopoint&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_util_documentfields_.html">&quot;util/document<wbr>Fields&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_util_path_.html">&quot;util/path&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -246,31 +274,34 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="firestore.html" class="tsd-kind-icon">Firestore</a>
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_firestore_.firestore.html" class="tsd-kind-icon">Firestore</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="firestore.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_firestore_.firestore.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="firestore.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a>
+								<a href="_firestore_.firestore.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="firestore.html#config" class="tsd-kind-icon">config</a>
+								<a href="_firestore_.firestore.html#config" class="tsd-kind-icon">config</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="firestore.html#tokenmanager" class="tsd-kind-icon">token<wbr>Manager</a>
+								<a href="_firestore_.firestore.html#tokenmanager" class="tsd-kind-icon">token<wbr>Manager</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="firestore.html#collection" class="tsd-kind-icon">collection</a>
+								<a href="_firestore_.firestore.html#collection" class="tsd-kind-icon">collection</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="firestore.html#doc" class="tsd-kind-icon">doc</a>
+								<a href="_firestore_.firestore.html#doc" class="tsd-kind-icon">doc</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_firestore_.firestoreconfig.html" class="tsd-kind-icon">Firestore<wbr>Config</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -281,9 +312,17 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>
