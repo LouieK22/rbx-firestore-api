@@ -9,6 +9,7 @@
 	},
 	"plugins": [
 		"@typescript-eslint",
+		"eslint-plugin-tsdoc",
 		"roblox-ts",
 		"prettier"
 	],
@@ -28,6 +29,7 @@
 				"tabWidth": 4,
 				"useTabs": true
 			}
-		]
+		],
+		"tsdoc/syntax": "warn"
 	}
 }

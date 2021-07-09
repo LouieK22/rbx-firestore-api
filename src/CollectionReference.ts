@@ -23,7 +23,7 @@ export class CollectionReference {
 
 	/**
 	 * Gets a document reference for a given path within the collection
-	 * @param path Document path
+	 * @param path - Document path
 	 */
 	public doc(path: string) {
 		return new References.DocumentReference(this.firestore, pathJoin(this.path, path));
