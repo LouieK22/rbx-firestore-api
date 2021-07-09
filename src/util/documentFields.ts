@@ -233,7 +233,7 @@ export function encodeDocumentFieldValue(value: DocumentDataValue): RawFirestore
 export function encodeDocumentFields(fields: DocumentData) {
 	const encoded: MapFields = new Map();
 
-	const fieldsAsMap = (fields as unknown) as Map<string, DocumentData>;
+	const fieldsAsMap = fields as unknown as Map<string, DocumentData>;
 
 	fieldsAsMap.forEach((value, key) => {
 		encoded.set(key, encodeDocumentFieldValue(value));

@@ -65,11 +65,11 @@ export = () => {
 			fakeMap.set("thingy", { stringValue: "stuff" });
 			fakeMap.set("other", { integerValue: "99" });
 
-			const decoded = (decodeDocumentFieldValue({
+			const decoded = decodeDocumentFieldValue({
 				mapValue: {
 					fields: fakeMap,
 				},
-			}) as unknown) as Map<string, unknown>;
+			}) as unknown as Map<string, unknown>;
 
 			expect(decoded.get("thingy")).to.equal("stuff");
 			expect(decoded.get("other")).to.equal(99);

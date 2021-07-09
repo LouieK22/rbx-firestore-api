@@ -15,7 +15,6 @@
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
 		"plugin:roblox-ts/recommended",
-		"prettier/@typescript-eslint",
 		"plugin:prettier/recommended"
 	],
 	"rules": {
@@ -29,9 +28,6 @@
 				"tabWidth": 4,
 				"useTabs": true
 			}
-		],
-		"@typescript-eslint/member-ordering": [
-			"warn"
 		]
 	}
 }
