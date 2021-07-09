@@ -67,5 +67,5 @@ jobs:
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          brand: gh-pages
+          branch: gh-pages
           folder: docs
